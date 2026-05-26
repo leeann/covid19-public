@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable = yes">
+
+    <title>COVID-19 in Malaysia - Palm Oil Dashboard</title>
+    <meta name="author" content="COVID-19 Dashboard">
+    <meta name="title" content="COVID-19 in Malaysia - Palm Oil Leaf Visualization">
+    <meta name="description" content="Official data on the COVID-19 epidemic in Malaysia. Visualizing cases, deaths, and vaccinations across states using palm oil leaf design.">
+    <meta name="keywords" content="COVID-19, coronavirus, Malaysia, data visualization, cases, deaths, vaccination, palm oil">
+    <meta name="theme-color" content="#dc2626">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+    
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500" rel="stylesheet">
+
+    <!-- Styling -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/createPalmLeafVisualization.js"></script>
+    <script src="js/createTimelineAnnotations.js"></script>
+    <script src="js/createPalmLegends.js"></script>
+    
+</head>
+<body>
+    
+    <div id="covid-wrapper">
+        
+        <div class="covid-section-wrapper head-title-wrapper">
+            <h1 id="covid-top-title">COVID-19 Epidemic in Malaysia</h1>
+            <h3 id="covid-top-subtitle">Cases, Deaths & Vaccinations by State - Palm Oil Leaf Design</h3>
+        </div>
+        
+        <div class="covid-section-wrapper">
+            <div id="covid-introduction">
+                <p class="bold-start">Explore the progression of the COVID-19 pandemic across Malaysia's states from 2020 onwards using a design inspired by Malaysia's iconic palm oil trees. Each state is represented as a palm oil frond with leaflets representing different time periods and pandemic metrics.</p>
+                <p>This visualization combines official data from CPRC, the CPRC Hospital System, MKAK, and MySejahtera. Palm oil fronds naturally grow with pinnate (feather-like) leaflets, making them an apt metaphor for displaying temporal and geographic data simultaneously.</p>
+                <p>Just as palm oil plantations are central to Malaysia's economy and landscape, this visualization places your state's pandemic journey at the center. The length and color of each leaflet segment encode case counts, death rates, and vaccination coverage.</p>
+                <p class="visual-note">Interactive tooltips reveal detailed metrics for each state, time period, and demographic group when you hover over the leaflets.</p>
+            </div>
+        </div>
+
+        <!-- THE chart -->
+        <div id="covid-chart"></div>
+
+        <!-- legend -->
+        <div class="covid-section-wrapper head-title-wrapper">
+            <h1 id="covid-legend-title">How to Read a Palm Oil Frond</h1>
+        </div>
+        <div class="covid-section-wrapper">
+            <div id="covid-feather-legend">
+                <p class="bold-start">Each palm oil frond represents a Malaysian state. Within each frond, we find leaflets (pinnae) representing different time periods in the pandemic timeline, growing from the center (early 2020) outward (recent dates).</p>
+                <p>The fronds are arranged in a circular pattern, mimicking how palm trees grow in Malaysian plantations. Each leaflet segment displays three key metrics through color and width, allowing simultaneous comparison across states and time.</p>
+                <p>The visualization uses color encoding to distinguish between case counts (blue), deaths (red), and vaccination rates (green). The size and length of leaflet segments represent the magnitude of each metric relative to other states and time periods.</p>
+                <p>States with higher case counts or mortality rates show as more prominent leaflets, making it easy to identify which regions were most heavily impacted during different phases of the pandemic.</p>
+                <p>Hover over any leaflet segment to see detailed information including the specific state, time period, exact case count, death toll, vaccination percentage, and other relevant statistics.</p>
+            </div>
+        </div>
+        <div id="covid-legend-visual-wrapper">
+            <div id="covid-chart-legend"></div>
+            <div id="covid-color-legend"></div>
+        </div>
+        
+        
+        <!-- Credits & Data -->
+        <div id="credits">
+            <div class="credit-bold">Data Sources: <a href="https://github.com/leeann/covid19-public">Official COVID-19 Malaysia Repository</a> <span class="credit-divider">|</span> Powered by CPRC, CPRC Hospital System, MKAK, and MySejahtera</div>
+            <div class="credit-note">Palm oil tree design inspired by Malaysia's agricultural heritage. Interactive visualization built with D3.js for interactive data exploration.</div>
+        </div>
+
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip">
+        <div id="tooltip-container">
+            <div class="tooltip-state"></div>
+            <div class="tooltip-rule"></div>
+            <div class="tooltip-metric"></div>
+            
+            <div id="tooltip-cases"></div>
+            <div id="tooltip-deaths"></div>
+            <div id="tooltip-vaccination"></div>
+            <div id="tooltip-period"></div>
+        </div>
+    </div>
+
+    <!-- Tooltip - Time Period -->
+    <div id="tooltip-period-wrapper">
+        <div id="tooltip-period-container">              
+            <div id="tooltip-period-date"></div>
+            <div id="tooltip-period-summary"></div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
